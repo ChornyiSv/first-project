@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Register{% endblock head_title %}
+
+{% block content %}
+    <div class="d-flex align-items-center justify-content-center" style="height: 100vh">
+        <div class="container" style="border: 1px solid black">
+            <div class="row justify-content-center" style="border: 1px solid yellow">
+                <form action="{% url 'store:register' %}" method="post" class="row justify-content-center" style="text-align: center">
+                    {% csrf_token %}
+                    <div class="col-md-4">
+                         <div class="col-md-12"  style="margin-top:  8px">
+                            <label for="inputLogin" class="form-label">Create login</label>
+                            <input type="text" class="form-control" id="inputLogin" name="username" required>
+                        </div>
+                        <div class="col-md-12"  style="margin-top:  8px">
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" name="email" required>
+                        </div>
+                         <div class="col-md-12"  style="margin-top:  8px">
+                            <label for="inputPassword" class="form-label">Create password</label>
+                            <input type="password" class="form-control" id="inputPassword" name="password1" pattern=".{8,}" title="Must be at least 8 characters" required>
+                         </div>
+                        <div class="col-md-12"  style="margin-top:  8px">
+                            <label for="inputConfirmPassword" class="form-label">Confirm password</label>
+                            <input type="password" class="form-control" id="inputConfirmPassword" name="password2" pattern=".{8,}" title="Must be at least 8 characters" required>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px">Create an account</button>
+                        </div>
+                        {% if form.errors %}
+                            <div class="alert alert-danger">
+                                <strong>Error:</strong> Please correct the errors below.
+                                <ul>
+                                    {% for field, errors in form.errors.items %}
+                                        {% for error in errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                        <hr>
+                        <div>
+                            <button type="button" onclick="backToLogin()" class="btn btn-primary" style="width: 100%; margin-bottom: 8px" >Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+     function backToLogin(){
+            window.location.href = "http://127.0.0.1:8000/store/login";
+        }
+    </script>
+{% endblock content %}

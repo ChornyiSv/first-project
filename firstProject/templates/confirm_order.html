@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Admin{% endblock head_title %}
+
+{% block additional_css %}
+    <link rel="stylesheet" type="text/css" href="css_for_confirm.css">
+{% endblock additional_css %}
+
+{% block content %}
+    <p>
+        Користувач після додавння всіх потрібних товарів в кошик, переходить в це вікно для
+        підтвердження замовлення, та заповненням даних для відправки. Потрібно зробити так щоб це вилітало
+        як маленьке вікно після створення замовлення в кошику.
+    </p>
+    <div class="d-flex justify-content-center align-items-center bg-success" style="height: 100%">
+        <div class="col-md-4 bg-black px-2">
+            <div class="col-12 bg-white text-center my-1">
+                <h1>Підтвердження замовлення</h1>
+            </div>
+            <div>
+                <input type="text" class="rounded col-12 my-1" name="first_second_name" placeholder="Name and Surname">
+            </div>
+            <div>
+                <input type="text" class="rounded col-12 my-1" name="city" placeholder="City">
+            </div>
+            <div>
+                <input type="text" class="rounded col-12 my-1" name="street" placeholder="Street">
+            </div>
+            <div>
+                <input type="tel" class="rounded col-12 my-1" name="post_code" placeholder="Post code">
+            </div>
+            <div>
+                <input type="email" class="rounded col-12 my-1" name="email" placeholder="Email">
+            </div>
+            <div>
+                <input type="tel" class="rounded col-12 my-1" name="tel" placeholder="Phone number">
+            </div>
+            <div>
+                <input type="text" class="rounded col-12 my-1" name="name_post_office" placeholder="Name and number of post office">
+            </div>
+            <div>
+                <button class="btn btn-primary col-12 my-1" type="submit">Create order</button>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

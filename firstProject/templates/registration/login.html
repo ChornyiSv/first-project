@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Login{% endblock head_title %}
+{% block content %}
+    <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="container" style="border: 1px solid black">
+            <div class="row justify-content-center" style="border: 1px solid yellow">
+                <div class="col-md-4" style="text-align: center">
+                        <form method="post" action="{% url 'store:login' %}">
+                            {% csrf_token %}
+                            <div class="col-md-12" style="margin-top: 8px">
+                                <label for="inputLogin" class="form-label">Login</label>
+                                <input type="text" class="form-control" id="inputLogin" name="login" placeholder="Enter your login" required>
+                            </div>
+                            <div class="col-md-12" style="margin-top: 8px">
+                                <label for="inputPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Enter your password" required>
+                            </div>
+
+                            <input type="submit" value="Login" class="btn btn-primary" style="width: 100%; margin-top: 8px">
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        </form>
+
+                        <div class="row row-cols-lg-auto" style="margin-top: 8px">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Remember me
+                                </label>
+                            </div>
+                            {% if messages %}
+                              <ul class="messages">
+                                {% for message in messages %}
+                                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                              </ul>
+                            {% endif %}
+                            <div>
+                                <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="{% url 'password_reset' %}">
+                                    <svg class="bi" aria-hidden="true"><use xlink:href="#clipboard"></use></svg>
+                                    Forgot password
+                                </a>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- Додаємо кнопку для переходу на сторінку реєстрації -->
+                        <div>
+                            <button type="button" onclick="goToSignIn()" class="btn btn-primary" style="width: 100%; margin-bottom: 8px">Register</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+     function goToSignIn(){
+            window.location.href = "{% url 'store:register' %}";
+        }
+    </script>
+
+
+{% endblock content %}

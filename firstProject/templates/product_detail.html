@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head_title %}{{ title }}{% endblock head_title %}
+{% block style %}
+    button{
+            width: 200px;
+            padding: 10px 0;
+            text-align: center;
+            margin: 16px;
+            font-weight: bold;
+            border: 1px solid black;
+            background: transparent;
+            cursor: pointer;
+            overflow: hidden;
+        }
+{% endblock style %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6 m-3 text-center">
+                <h1 style="color: lime; text-align: center"> {{ product.title }}</h1>
+                {% if product.image %}
+                <img style="width: 150px; height: 150px" src="{{ product.image.url }}" alt="Oops" class="mx-auto d-block">
+                {% endif %}
+                <div class="text-start">
+                    <p >{{ product.description }}</p>
+                </div>
+                <div style="text-align: start">
+                    <b>{{ product.price }}$</b><br>
+                    <b><a href="{{ product.site }}" target="_blank" >{{ product.site }}</a></b>
+                </div>
+
+                <hr>#кнопкиииииииииииииииииииииииии при різних розмірах мають бути в колонку
+                <div class="d-grid gap-2 d-md-flex flex-large-column justify-content-center"> {% comment %}чому не починається з початку рядка{% endcomment %}
+                    <div>
+                        <button type="button"  class="btn btn-outline-secondary" style="width: 200px" onclick="goBack()">Back</button>
+                    </div>
+                    <div>
+                        <button type="button"  class="btn btn-outline-secondary" style="width: 200px"  onclick="window.location.href='{% url 'store:back_main' %}'">Back to main page</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+
+    </script>
+{% endblock content %}

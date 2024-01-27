@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block head_title %}{{ title }}{% endblock head_title %}
+{% block content %}
+    <div class="col-sm-10 col-sm-offset-2">
+        <h1>{{ object.title }} <small>{{ object.timestamp }}</small></h1>
+        {% if object.image %}
+            <img src="{{ object.image.url }}" alt="Image" class="img-responsive">
+        {% endif %}
+        {% if object.user.get_full_name %} <p>Author: {{ object.user.get_full_name }}</p>{% endif %}
+        {{ object.content|linebreaks }}
+        <hr>
+        <button onclick="backToMain()">Back to main menu</button>
+    </div>
+
+    <script>
+        function backToMain(){
+            window.location.href = 'http://127.0.0.1:8000/blog/'
+        }
+    </script>
+{% endblock content %}

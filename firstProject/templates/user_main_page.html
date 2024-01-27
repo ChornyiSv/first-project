@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}User{% endblock head_title %}
+
+{% block content %}
+    <div class="container-fluid" style="min-height: 100vh;">
+        <div class="row">
+            <div class="col-11 p-0">
+                <nav class="navbar" style="background-color: #264b5d;" >
+                    <div class="container-fluid">
+                        <a class="navbar-brand d-none d-md-block" href="#">
+                            <img src="{% static "images/logo.png" %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                            Black Store
+                        </a>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" name='q' type="search" placeholder="Search" value="{{ request.GET.q }}" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-1 d-flex align-items-center justify-content-center" style="background-color: #264b5d;">
+                <img src="{% static '/images/profile-user.png' %}" alt="Profile" width="25" height="25">
+            </div>
+        </div>
+        <div class="d-flex flex-grow-1">
+            <div class="col-xs-12 col-sm-4 col-md-auto col-lg-2 p-1 d-flex flex-column" style="background-color: #264b5d; height: 100vh; position: sticky; top: 0;">
+                <ul class="nav flex-column" id="main-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/store/user_main_page/">
+                            <img src="{% static 'images/home.png' %}" alt="Home" width="20" height="20" class="mr-2">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <img src="{% static 'images/options-lines.png' %}" alt="Categories" width="20" height="20" class="mr-2">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/store/laptops/">Laptops</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/store/phones/">Phones</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/store/earphones/">Headphones</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Categories</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/store/profile/">
+                            <img src="{% static 'images/profile-user.png' %}" alt="Profile" width="20" height="20" class="mr-2">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="{% static 'images/settings.png' %}" alt="Settings" width="20" height="20" class="mr-2">
+                            Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/store/shopping_cart/">
+                            <img src="{% static 'images/bag items.png' %}" alt="Bag items" width="20" height="20" class="mr-2">
+                            Bag items
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="{% static 'images/favourites.png' %}" alt="Favourites" width="20" height="20" class="mr-2">
+                            Favourites
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="{% static 'images/sale-tag.png' %}" alt="Profile" width="20" height="20" class="mr-2">
+                            Sales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="{% static 'images/information-button.png' %}" alt="Profile" width="20" height="20" class="mr-2">
+                            About us
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-grid gap-2 col-6 mx-auto mt-auto text-center">
+                    <form method="post" action="{% url 'store:logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-10 d-flex flex-column " style="min-height: 100vh;">
+                <div class="album">
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                            {% for product in products_list %}
+                                 <div class="col-10 col-md-6 col-lg-4 py-1">
+                                    <div class="card shadow-sm">
+                                        <h3 style="text-align: center; line-height: 1.2; max-height: 2.4em; height: 80px; overflow: hidden; background-color: #747474"><a style="color: black; text-decoration: none" href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+                                        {% if product.image %}
+                                        <img src="{{ product.image.url }}" style="height: 150px; width: 250px" class="bd-placeholder-img card-img-top" alt="Product Image">
+                                        {% endif %}
+                                        <div class="card-body">
+                                            <p style="height: 100px; overflow: hidden;" class="card-text">Опис: {{ product.description|truncatechars:100 }}</p>
+                                            <b>Price: {{ product.price }}$</b>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <button type="button" class="btn btn-outline-info" onclick="detail('{{ product.get_absolute_url }}')">View</button>
+                                                <small class="text-body-secondary">{{ product.time_create }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if products_list.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?{{ page_request_var }}={{ products_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% for page in products_list.paginator.page_range %}
+                                <li class="page-item {% if page == products_list.number %}active{% endif %}">
+                                    <a class="page-link" href="?{{ page_request_var }}={{ page }}">{{ page }}</a>
+                                </li>
+                            {% endfor %}
+
+                            {% if products_list.has_next %}
+                                <li class="page-item">
+                                        <a class="page-link" href="?{{ page_request_var }}={{ products_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                </li>
+                             {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function detail(url){
+            window.location.href = url;
+        }
+    </script>
+{% endblock content %}

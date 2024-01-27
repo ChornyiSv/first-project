@@ -1,0 +1,103 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Information about Django</title>
+    </head>
+    <body>
+    <h1 style="text-align:center">Welcome to Django</h1>
+    <img src="../media_cdn/DJ.jpg" width="500" height="300" style="display: block; margin: 0 auto;" alt="" usemap="#django" >
+    <map name="django">
+    <area shape="rect" coords="34,44,270,350" alt="Computer" href="https://docs.djangoproject.com/en/4.2/" target="_blank">
+    </map>
+    <p>
+        <a href="https://uk.wikipedia.org/wiki/Django" target="_blank"><b>Django</b></a> (укр. Джанго) — високорівневий відкритий Python-фреймворк (програмний каркас) для розробки вебсистем. Названо його було на честь джазмена Джанго Рейнхардта (відповідно до музичних смаків одного зі засновників проєкту).
+        <br>
+        Сайт на Django будується з однієї або декількох частин, які рекомендується робити модульними. Це одна з істотних архітектурних відмінностей цього фреймворку від деяких інших (наприклад Ruby on Rails).
+        Архітектура Django подібна на «Модель-Вигляд-Контролер» <a href="https://uk.wikipedia.org/wiki/%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C-%D0%B2%D0%B8%D0%B4-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%B5%D1%80" target="_self">(MVC) </a>. Однак, те що називається «контролером» в класичній моделі MVC, в Django називається «вигляд» (англ. view), а те, що мало б бути «виглядом», називається «шаблон» (англ. template). Таким чином, MVC розробники Django називають MTV («Модель-Шаблон-Вигляд»).
+    </p>
+
+    <acticle>
+        <h2>Опис та функції компонентів</h2>
+        <p>
+            У рамках архітектурного шаблону модель–вигляд–контролер (MVC) програма поділяється на три окремі, але взаємопов'язані частини з розподілом функцій між компонентами. Модель (Model) відповідає за зберігання даних та їх структуру. Вигляд (View) відповідальний за представлення цих даних користувачеві, тобто інтерфейс програми. Контролер (Controller) керує компонентами, отримує сигнали у вигляді реакції на дії користувача (зміна положення курсора миші, натискання кнопки, ввід даних в текстове поле) і передає дані у модель.<br>
+            <i>Модель</i> є центральним компонентом шаблону MVC і відображає поведінку застосунку, незалежну від інтерфейсу користувача. Модель стосується прямого керування даними, логікою та правилами застосунку.<br>
+            <i>Активна модель</i> - вигляд відстежує зміни в моделі та реагує на них.<br>
+            <i>Пасивна модель</i>- вигляд оновлюється через контролер.<br>
+            <b>Вигляд</b> може являти собою будь-яке представлення інформації, одержуване на виході, наприклад графік чи діаграму. Одночасно можуть співіснувати кілька виглядів (представлень) однієї і тієї ж інформації, наприклад гістограма для керівництва компанії й таблиці для бухгалтерії.<br>
+            <b>Контролер</b> одержує вхідні дані й перетворює їх на команди для моделі чи вигляду.<br>
+            <u>Модель</u> інкапсулює ядро даних і основний функціонал їхньої обробки і не залежить від процесу вводу чи виводу даних.<br>
+            <u>Вигляд</u> може мати декілька взаємопов'язаних областей, наприклад різні таблиці і поля форм, в яких відображаються дані.<br>
+            У функції контролера входить відстеження визначених подій, що виникають в результаті дій користувача. Контролер дозволяє структурувати код шляхом групування пов'язаних дій в окремий клас. Наприклад у типовому MVC-проєкті може бути користувацький контролер, що містить групу методів, пов'язаних з управлінням обліковим записом користувача, таких як реєстрація, авторизація, редагування профілю та зміна пароля.<br>
+            Зареєстровані події транслюються в різні запити, що спрямовуються компонентам моделі або об'єктам, відповідальним за відображення даних. Відокремлення моделі від вигляду даних дозволяє незалежно використовувати різні компоненти для відображення інформації. Таким чином, якщо користувач через контролер внесе зміни до моделі даних, то інформація, подана одним або декількома візуальними компонентами, буде автоматично відкоригована відповідно до змін, що відбулися.<br>
+        </p>
+    </acticle>
+
+    <article>
+        <details>
+        <p>
+            <summary> <bdo dir="ltr">  <b style="font-size: 24px"> Django documentation</b> </bdo> </summary> <br>
+            <mark style="font-size: 18px">Everything you need to know about Django.</mark>
+
+            <h2>First steps¶</h2>
+            Are you new to Django or to programming? This is the place to start! <br>
+
+            <b>From scratch:</b> Overview | Installation <br>
+            <b>Tutorial:</b> Part 1: Requests and responses | Part 2: Models and the admin site | Part 3: Views and templates | Part 4: Forms and generic views | Part 5: Testing | Part 6: Static files | Part 7: Customizing the admin site | Part 8: Adding third-party packages<br>
+            <b>Advanced Tutorials:</b> How to write reusable apps | Writing your first patch for Django <br>
+        </p>
+        </details>
+        <hr>
+    </article>
+
+        <p>
+            <h2 style="color: red">Getting help¶</h2>
+            <em style="font-size: 18px" >Having trouble? We’d like to help!</em>  <br>
+
+            <ul>
+                <li>Try the FAQ – it’s got answers to many common questions.</li>
+                <li>Looking for specific information? Try the Index, Module Index or the detailed table of contents.</li>
+                <li><q>Not found anything?</q> See FAQ: Getting Help for information on getting support and asking questions to the community.</li>
+                <li>Report bugs with Django in our ticket tracker.</li>
+            </ul>
+        </p>
+
+        <p>
+        <h2 style="font-size: 24px">The model layer¶</h2>
+
+        Django provides an abstraction layer (the “models”) for <sub>structuring</sub> and <sup>manipulating</sup> the data of your web application. Learn more about it below: <br>
+
+        <strong>Models:</strong> <ol><li>Introduction to models</li> <li>Field types</li> <li>Indexes</li> <li>Meta options</li> <li>Model class</li></ol> <br>
+        <strong>QuerySets:</strong> <ol><li>Making queries</li> <li>QuerySet method reference</li>  <li>Lookup expressions</li></ol> <br>
+        <strong>Model instances:</strong> <ol><li>Instance methods</li> <li>Accessing related objects</li></ol> <br>
+        <strong>Migrations:</strong> <ol><li>Introduction to Migrations</li> <li>Operations reference</li> <li>SchemaEditor</li> <li> Writing migrations</li></ol> <br>
+        <strong>Advanced:</strong> <ol> <li>Managers</li> <li>Raw SQL</li> <li>Transactions</li> <li>Aggregation</li> <li>Search</li> <li>Custom fields</li> <li>Multiple databases</li> <li>Custom lookups</li> <li>Query Expressions</li> <li>Conditional Expressions</li> <li>Database Functions</li></ol> <br>
+        <strong>Other:</strong><ol><li>Supported databases</li> <li>Legacy databases</li> <li>Providing initial data</li> <li>Optimize database access</li> <li>PostgreSQL specific features</li></ol>  <br>
+        </p>
+
+    <p> <strong style="font-size: 18px">Choose the best framework for you</strong></p>
+
+
+    <form action="">
+      <input type="radio" id="Django" name="fav_framework" value="Django">
+      <label for="Django">Django</label><br>
+      <input type="radio" id="Web2Py" name="fav_framework" value="Web2Py">
+      <label for="Web2Py">Web2Py</label><br>
+      <input type="radio" id="Flask" name="fav_framework" value="Flask">
+      <label for="Flask">Flask</label><br><br>
+      <input type="submit" value="Submit">
+    </form> <br>
+
+    <adress>
+    Статтю написав: <a href="mailto:example@example.com">Sviat</a>.<br>
+    Відвідайте наш сайт: <a href="https://lviv.logos-academy.com/" target="_blank">Logos Academy</a><br>
+    вулиця Івана Франка, 61<br>
+    Львів, Україна <br>
+    </adress><br>
+
+    <a href="https://lviv.logos-academy.com/" target="_blank"><s>Підпишись на наш блог!</s> </a> <br>
+
+    <p>My favorite language is <del>Java</del> <ins>Python</ins>!</p>
+    <p><small style="text-align: right">Сподіваємося ця стаття була корисною для вас!!!</small></p>
+    </body>
+    </html>

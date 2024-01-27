@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block head_title %}{{ title }}{% endblock head_title %}
+
+{% block content %}
+    {% for product in products_list %}
+        {% if product.topic == 'Laptops' %}
+            <h2 style="color:blue;">Заголовок: <a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h2>
+            <h2>Каритнка: {{ product.image }}</h2>
+            <h2>Категорія: {{ product.topic }} </h2>
+            <h2>Опис: {{ product.description }} </h2>
+            <h2>Ціна: ${{ product.price }} </h2>
+            <h2>Сайт: <a href="{{ product.site }}" target="_blank" >{{ product.site }}</a></h2>
+            <hr>
+        {% elif product.topic == 'Phones' %}
+            <h2 style="color:blue;">Заголовок: <a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h2>
+            <h2>Каритнка: {{ product.image }}</h2>
+            <h2>Категорія: {{ product.topic }} </h2>
+            <h2>Опис: {{ product.description }} </h2>
+            <h2>Ціна: ${{ product.price }} </h2>
+            <h2>Сайт: <a href="{{ product.site }}" target="_blank" >{{ product.site }}</a></h2>
+            <hr>
+        {% elif product.topic == 'Earphones' %}
+            <h2 style="color:blue;">Заголовок: <a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h2>
+            <h2>Каритнка: {{ product.image }}</h2>
+            <h2>Категорія: {{ product.topic }} </h2>
+            <h2>Опис: {{ product.description }} </h2>
+            <h2>Ціна: ${{ product.price }} </h2>
+            <h2>Сайт: <a href="{{ product.site }}" target="_blank" >{{ product.site }}</a></h2>
+            <hr>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}

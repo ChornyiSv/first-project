@@ -1,0 +1,15 @@
+
+h1{
+    color: cornflowerblue;
+    font-size: 100px;}
+
+.test{
+    color: antiquewhite;
+    background-color: burlywood;
+}
+
+#text{
+    text-align: center;
+    color: blue;
+    margin-bottom: 200px;
+}
