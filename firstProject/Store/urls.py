@@ -8,7 +8,7 @@ from django.contrib.auth.views import LogoutView
 app_name = 'store'
 
 urlpatterns = [
-    path('', user_main_page, name='home_page'),
+    path('', login_view, name='home_page'),
 
     path('register/', register, name='register'), # реєстрація юзера
     path('login/', login_view, name='login'), # сторінка на якій юзер чи адмін може залогуватися
